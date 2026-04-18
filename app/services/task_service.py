@@ -1,5 +1,4 @@
 from app.models.models import User, Task
-from app.core.database import store
 from app.utils.helpers import get_next_id
 from app.repositories import task_repository
 
@@ -11,10 +10,10 @@ def create_task(user: User, difficulty: int, description: str, notes: str) -> tu
         return None, "❌ Wszystkie pola są wymagane"
 
     new_task = Task(
-        id=get_next_id("T", store.tasks),
+        id=get_next_id("T", "tasks"),
         user_id=user.id,
-        task_difficulty=difficulty,
-        task_description=description,
+        difficulty=difficulty,
+        description=description,
         additional_notes=notes
     )
 
