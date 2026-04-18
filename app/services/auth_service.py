@@ -9,6 +9,7 @@ def authenticate(username: str, password: str):
         return user
     return None
 
+
 def register_user(name: str, username: str, password: str) -> tuple[bool, str]:
     user = user_repository.find_by_username(username)
     if user:

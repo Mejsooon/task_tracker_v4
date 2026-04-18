@@ -13,7 +13,7 @@ class User:
 class Task:
     id: str
     user_id: str # Do kogo przypisany jest ten task
-    task_difficulty: str
-    task_description: str
+    difficulty: str
+    description: str
     additional_notes: Optional[str] = ""
     status: str = "active"
