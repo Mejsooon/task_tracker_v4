@@ -1,6 +1,7 @@
 from app.utils.helpers import clear_screen
 from app.cli.auth_cli import login_screen, register_screen
 from app.cli.main_cli import user_panel
+from app.core.database import init_db
 import logging
 
 
@@ -15,6 +16,7 @@ logging.basicConfig(
 
 
 def main():
+    init_db()
     while True:
         print("\n" + "=" * 60)
         print("TASK TRACKER")
