@@ -3,10 +3,13 @@ import os
 
 load_dotenv()
 
-DB_CONFIG = {
-    "host":     os.getenv("DB_HOST", "localhost"),
-    "port":     int(os.getenv("DB_PORT", 5432)),
-    "user":     os.getenv("DB_USER", "postgres"),
-    "password": os.getenv("DB_PASSWORD"),
-    "dbname":   os.getenv("DB_NAME", "task_tracker"),
+# dialect+driver://username:password@host:port/database
+
+DB_URL = {
+    f"postgresql+psycopg2://"
+    f"{os.getenv('DB_USER', 'postgres')}:"
+    f"{os.getenv('DB_PASSWORD')}@"
+    f"{os.getenv('DB_HOST', 'localhost')}:"
+    f"{os.getenv('DB_PORT', '5432')}/"
+    f"{os.getenv('DB_NAME', 'task_tracker')}"
 }
