@@ -5,7 +5,7 @@ from config import DB_URL
 
 engine = create_engine(DB_URL, echo=False)  # echo=True pokazuje generowane SQL-e (przydatne przy debugowaniu)
 
-SessionLocal = sessionmaker(bind=engine)
+SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
 class Base(DeclarativeBase):
     pass
